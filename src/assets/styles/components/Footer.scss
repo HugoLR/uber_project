@@ -1,0 +1,25 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400&display=swap');
+$light-gray: #DCDCDC;
+$blackd: #2C2C2C;
+
+.Footer {
+  margin: 0px;
+  background-color: $blackd;
+  
+}
+.Footer ul{
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  height: 10vh;
+  margin: 0px 100px 0px 100px;
+  padding-right: 40px;
+  
+}
+
+.Footer li a{
+  text-decoration: none;
+  margin: 0px;
+  color:$light-gray;
+  text-align: center;
+}
