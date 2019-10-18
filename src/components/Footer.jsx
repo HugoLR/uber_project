@@ -2,13 +2,11 @@ import React from 'react';
 import '../assets/styles/components/Footer.scss';
 
 const Footer = () => (
-  <div className="Footer">
-    <ul>
-        <li><a href="/">Términos de uso</a></li>
-        <li><a href="/">Declaración de privacidad</a></li>
-        <li><a href="/">Centro de ayuda</a></li>
-      </ul>
-  </div>
+  <footer className="footer">
+    <a href="/">Terminos de uso</a>
+    <a href="/">Declaración de privacidad</a>
+    <a href="/">Centro de ayuda</a>
+  </footer>
 )
 
 export default Footer;

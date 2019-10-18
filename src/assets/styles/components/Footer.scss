@@ -2,24 +2,22 @@
 $light-gray: #DCDCDC;
 $blackd: #2C2C2C;
 
-.Footer {
-  margin: 0px;
-  background-color: $blackd;
-  
-}
-.Footer ul{
-  list-style: none;
+.footer {
+  align-items: center;
+  background-color: $light-gray;
   display: flex;
-  justify-content: space-between;
-  height: 10vh;
-  margin: 0px 100px 0px 100px;
-  padding-right: 40px;
-  
+  height: 100px;
+  width: 100%;
 }
 
-.Footer li a{
+.footer a {
+  color: $blackd;
+  cursor: pointer;
+  font-size: 14px;
+  padding-left: 30px;
   text-decoration: none;
-  margin: 0px;
-  color:$light-gray;
-  text-align: center;
+}
+
+.footer a:hover {
+  color: gray;
 }

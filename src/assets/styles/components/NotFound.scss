@@ -15,8 +15,8 @@ $blackd: #2C2C2C;
 .main{
     height: 80vh;
     margin: 0px;
-    background: $blackd;
-    color: white;
+    background: $light-gray;
+    color: $blackd;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
