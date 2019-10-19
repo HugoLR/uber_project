@@ -1,0 +1,64 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400&display=swap');
+$light-gray: #DCDCDC;
+$blackd: #2C2C2C;
+
+.register {
+    display: grid;
+    grid-template-columns: 35% 65%;
+    height: 80vh;
+}
+
+.register__sidebar {
+    background: $blackd;
+    color: $light-gray;
+    //box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0px 10px 10px rgba(0,0,0,0.22);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.register__container {
+    background: $light-gray;
+    color: $blackd;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.register__container-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    min-height: 700px;
+    width: 500px;
+}
+
+.register__container-box h2{
+    font-size: 30pt;
+    letter-spacing: 2.5pt;
+}
+
+.register__container--form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.buttonRegister{
+    background-color: $blackd;
+    border: none;
+    border-radius: 25px;
+    color: white;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    font-family: 'Muli', sans-serif;
+    height: 50px;
+    width: 500px;
+    letter-spacing: 1px;
+    margin: 30px 0px;
+
+  }

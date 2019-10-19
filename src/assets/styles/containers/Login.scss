@@ -29,6 +29,7 @@ $blackd: #2C2C2C;
 
 .login__container-box--title{
     font-size: 30pt;
+    letter-spacing: 2.5pt;
 }
 
 .login__container-form{
@@ -96,7 +97,7 @@ $blackd: #2C2C2C;
 .login__sidebar {
     background: $blackd;
     color: $light-gray;
-    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+    //box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0px 10px 10px rgba(0,0,0,0.22);
     text-align: center;
     display: flex;
     flex-direction: column;
@@ -106,8 +107,12 @@ $blackd: #2C2C2C;
 }
 
 .button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     background-color: rgba(255, 255, 255, 0.3);
     border: none;
+    text-decoration: none;
     border-radius: 25px;
     color: white;
     cursor: pointer;
@@ -118,7 +123,7 @@ $blackd: #2C2C2C;
     width: 300px;
     letter-spacing: 1px;
     margin: 10px 0px;
-  }
+}
 
   .input {
     background-color: transparent;
@@ -126,7 +131,7 @@ $blackd: #2C2C2C;
     border-left: 0px;
     border-right: 0px;
     border-top: 0px;
-    color: white;
+    color: $blackd;
     font-family: 'Muli', sans-serif;
     font-size: 16px;
     height: 50px;

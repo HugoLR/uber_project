@@ -18,6 +18,14 @@ body {
   
 }
 
+.linkDecoration {
+  text-decoration: none;
+}
+
+.linkDecoration :hover {
+  color: gray;
+}
+
 h1 {
   padding-left: 20px;
   color: $blackd;

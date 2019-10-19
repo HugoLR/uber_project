@@ -4,7 +4,7 @@ import Footer from './Footer';
 import '../assets/styles/components/Layout.scss';
 
 const Layout = ({ children }) => (
-  <div className="Main">
+  <div className='Main'>
     <Header />
     {children}
     <Footer />
