@@ -1,0 +1,32 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400&display=swap');
+$light-gray: #DCDCDC;
+$blackd: #2C2C2C;
+
+body {
+  display: block;
+  margin: 0;
+}
+
+.Header {
+  align-items: center;
+  background-color: $light-gray ;
+  display: flex;
+  justify-content: space-between;
+  top: 0px;
+  width: 100%;
+  height: 10vh;
+  
+}
+
+.linkDecoration {
+  text-decoration: none;
+}
+
+.linkDecoration :hover {
+  color: gray;
+}
+
+h1 {
+  padding-left: 20px;
+  color: $blackd;
+}

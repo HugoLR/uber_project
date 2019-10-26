@@ -1,0 +1,23 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400&display=swap');
+$light-gray: #DCDCDC;
+$blackd: #2C2C2C;
+
+.footer {
+  align-items: center;
+  background-color: $light-gray;
+  display: flex;
+  height: 100px;
+  width: 100%;
+}
+
+.footer a {
+  color: $blackd;
+  cursor: pointer;
+  font-size: 14px;
+  padding-left: 30px;
+  text-decoration: none;
+}
+
+.footer a:hover {
+  color: gray;
+}
