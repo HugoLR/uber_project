@@ -7,14 +7,15 @@ import reducer from './reducers';
 import App from './routes/App';
 
 const initialState = {
-  "user": {}
-}
+  'user': {},
+};
 
 const store = createStore(reducer, initialState);
 
 ReactDOM.render(
   <Provider store={store}>
-      <App />
+    <App />
   </Provider>
-  , 
-  document.getElementById('app'));
+  ,
+  document.getElementById('app'),
+);

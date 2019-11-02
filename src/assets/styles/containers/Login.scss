@@ -9,7 +9,7 @@ $blackd: #2C2C2C;
   }
 
 .login__container {
-    background: $light-gray;
+    background: white;
     color: $blackd;
     text-align: center;
     display: flex;
@@ -91,12 +91,12 @@ $blackd: #2C2C2C;
   
   .login__container--social-media > div > img {
     margin-right: 10px;
-    width: 60px;
+    width: 40px;
   }
 
 .login__sidebar {
     background: $blackd;
-    color: $light-gray;
+    color: white;
     //box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0px 10px 10px rgba(0,0,0,0.22);
     text-align: center;
     display: flex;
