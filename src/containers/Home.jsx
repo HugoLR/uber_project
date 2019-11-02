@@ -1,9 +1,17 @@
 import React from 'react';
+import MapContainer from '../components/MapContainer';
 import '../assets/styles/containers/Home.scss';
 
 const Home = () => {
   return (
-    <h2 className='title'>Esta va a ser la homa page</h2>
+    <div calssName='home'>
+      <div className='home__map-container'>
+        <MapContainer />
+      </div>
+      <div>
+        hola
+      </div>
+    </div>
   );
 };
 
