@@ -2,7 +2,15 @@ $light-gray: #DCDCDC;
 $blackd: #2C2C2C;
 
 .home {
-    display: grid;
-    grid-template-columns: 65% 35%;
+    // display: grid;
+    // grid-template-columns: 65% 35%;
     height: 80vh;
-  }
+}
+
+.row {
+  height: inherit;
+}
+
+.row > div {
+  padding: 0px;
+}
