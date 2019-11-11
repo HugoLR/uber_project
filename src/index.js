@@ -2,15 +2,18 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { createStore, compose, combineReducers } from 'redux';
-import { accountReducer } from './reducers/index';
+import { accountReducer, initialLocationReducer } from './reducers/index';
 import { reducer as formReducer } from 'redux-form'
-import 'bootstrap/dist/css/bootstrap.css'
-
-
+import 'bootstrap/dist/css/bootstrap.css';
 import App from './routes/App';
+import { LoadScript } from '@react-google-maps/api';
+
+// Const
+import { GOOGLE_MAPS_API_KEY }  from './constans/app'
 
 const initialState = {
   'user': {},
+  'initialLocation': null,
   'ride': {},
   'favoritePlaces':[],
   'driver':{}, 
@@ -19,6 +22,7 @@ const initialState = {
 
 const reducers = {
   user: accountReducer,
+  locations: initialLocationReducer,
   form:formReducer
 }
 
@@ -29,7 +33,13 @@ const store = createStore(rootReducer, composeEnhancers());
 
 ReactDOM.render(
   <Provider store={store}>
-    <App />
+    <LoadScript
+      id="script-loader"
+      googleMapsApiKey={GOOGLE_MAPS_API_KEY}
+      libraries={["places"]}
+    >
+      <App />
+    </LoadScript>
   </Provider>
   ,
   document.getElementById('app'),

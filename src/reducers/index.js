@@ -1,3 +1,4 @@
-import accountReducer from './accountReducer'
+import accountReducer from './accountReducer';
+import initialLocationReducer from './initialLocationReducer';
 
-export { accountReducer }
+export { accountReducer, initialLocationReducer }
