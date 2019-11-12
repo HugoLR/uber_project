@@ -5,7 +5,7 @@
 }
 
 .ride__form {
-    padding: 30px 10px;
+    padding: 10px 10px;
 }
 
 .ride__form > div {
@@ -17,5 +17,39 @@
     font-family: sans-serif;
     color: white;
     text-align: center;
+}
+
+.ride__form-duration {
+    color: white;
+    margin-bottom: 20px;
+}
+
+.ride__form-grade {
+    width: 50%;
+    height: 55px;
+    margin: 0px auto;
+    padding: 10px;
+    border: 1px solid white ;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 52px;
+    cursor: pointer;
+    p {
+        margin: 0px;
+    }
+}
+
+.ride__form-grade-selected {
+    border: 1px solid #36B662;
+}
+
+.ride__form-button {
+    color: white;
+    background-color: #36B662;
+    border: none;
+    padding: 7px 12px;
+    border-radius: 21px;
 }
 

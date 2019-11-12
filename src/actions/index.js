@@ -13,3 +13,13 @@ export const destinyLocation = (payload) => ({
   type: 'DESTINY_LOCATION',
   payload,
 });
+
+export const distanceMatrixService = (payload) => ({
+  type: 'DISTANCE_MATRIX_SERVICE',
+  payload,
+});
+
+export const rideClass = (payload) => ({
+  type: 'RIDE_CLASS',
+  payload,
+});

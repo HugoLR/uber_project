@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from "react-dom";
 import PropagateLoader  from 'react-spinners/PropagateLoader';
-import { GoogleMap, Marker, DirectionsService, DirectionsRenderer } from '@react-google-maps/api';
+import { GoogleMap, Marker, DirectionsService, DirectionsRenderer, DistanceMatrixService } from '@react-google-maps/api';
 import '../assets/styles/components/MapContainer.scss';
 import Geocode from "react-geocode";
 
@@ -12,7 +12,7 @@ import { GOOGLE_MAPS_API_KEY }  from '../constans/app';
 import { connect } from 'react-redux';
 
 //Actions
-import { initialLocation } from '../actions';
+import { initialLocation, distanceMatrixService } from '../actions';
 
 Geocode.setApiKey(GOOGLE_MAPS_API_KEY);
 Geocode.setLanguage("es");
@@ -33,7 +33,6 @@ class MapContainer extends React.Component {
   componentDidMount(){
     if(navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(position => {
-        console.log(position)
         this.setState({latitude:position.coords.latitude, longitude:position.coords.longitude}, () => {
           Geocode.fromLatLng(this.state.latitude, this.state.longitude)
             .then(res => {
@@ -46,7 +45,6 @@ class MapContainer extends React.Component {
   }
 
   onLoad = (autocomplete) => {
-    console.log('autocomplete: ', autocomplete)
     this.autocomplete = autocomplete
   }
 
@@ -60,12 +58,17 @@ class MapContainer extends React.Component {
 
   directionsCallback = response => {
     // Todo: Fix call setsatet multiple Times
-    console.log('response', response)
     if (response !== null) {
       if (response.status === 'OK') {
           this.setState({directions: response})
       } else return
     }
+  }
+
+  distanceMatrixCallback = response => {
+    if (response !== null) {
+      this.props.distanceMatrixService(response)
+    } else return
   }
 
   render() {
@@ -113,7 +116,7 @@ class MapContainer extends React.Component {
                 />
                 <DirectionsService
                   options={{ // eslint-disable-line react-perf/jsx-no-new-object-as-prop
-                  destination: `${destinyLocation.latitude}, ${destinyLocation.longitude} `,
+                  destination: `${destinyLocation.latitude}, ${destinyLocation.longitude}`,
                   origin: `${latitude}, ${longitude}`,
                   travelMode: 'DRIVING'}}
                   onUnmount={directionsService => {
@@ -125,20 +128,32 @@ class MapContainer extends React.Component {
           }
           {
             directions !== null &&
-              <DirectionsRenderer
-                // required
-                options={{ // eslint-disable-line react-perf/jsx-no-new-object-as-prop
-                  directions: directions
-                }}
-                // optional
-                onLoad={directionsRenderer => {
-                  console.log('DirectionsRenderer onLoad directionsRenderer: ', directionsRenderer)
-                }}
-                // optional
-                onUnmount={directionsRenderer => {
-                  console.log('DirectionsRenderer onUnmount directionsRenderer: ', directionsRenderer)
-                }}
-              />
+              <React.Fragment>
+                <DirectionsRenderer
+                  // required
+                  options={{ // eslint-disable-line react-perf/jsx-no-new-object-as-prop
+                    directions: directions
+                  }}
+                  // optional
+                  onLoad={directionsRenderer => {
+                    console.log('DirectionsRenderer onLoad directionsRenderer: ', directionsRenderer)
+                  }}
+                  // optional
+                  onUnmount={directionsRenderer => {
+                    console.log('DirectionsRenderer onUnmount directionsRenderer: ', directionsRenderer)
+                  }}
+                />
+                <DistanceMatrixService
+                  // required
+                  options={{
+                    origins:[`${latitude}, ${longitude}`],
+                    destinations:[`${destinyLocation.latitude}, ${destinyLocation.longitude}`],
+                    travelMode: 'DRIVING',
+                  }}
+                  callback={(response) => this.distanceMatrixCallback(response)}
+                  
+                />
+              </React.Fragment>
           }
         </GoogleMap>
         </React.Fragment>
@@ -155,6 +170,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = {
   initialLocation,
+  distanceMatrixService
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(MapContainer)

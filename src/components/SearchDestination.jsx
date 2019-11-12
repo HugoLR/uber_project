@@ -26,9 +26,6 @@ class SearchDestination extends Component {
                 destiny.latitude = destiny.geometry.location.lat()
                 destiny.longitude = destiny.geometry.location.lng()
                 destinyLocation(destiny)
-                console.log('destiny', destiny)
-                console.log('searchbox', this.searchBox.getPlaces()[0].geometry.location.lat())
-                console.log(this.searchBox.getPlaces())
             }}
         >
             <input
