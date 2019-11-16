@@ -1,0 +1,25 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400&display=swap');
+$light-gray: #DCDCDC;
+$blackd: #2C2C2C;
+
+.inputRide {
+    background-color: transparent;
+    border-bottom: 2px solid $light-gray;
+    border-left: 0px;
+    border-right: 0px;
+    border-top: 0px;
+    color: $light-gray;
+    font-family: 'Muli', sans-serif;
+    font-size: 16px;
+    height: 50px;
+    margin: 0 0px;
+    outline: none;
+    padding: 0px 20px;
+  }
+
+  .input__origin > div > img {
+    margin-right: 10px;
+    margin-left: 42px;
+    margin-top: 8px;
+    width: 30px;
+}

@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 import { StandaloneSearchBox } from '@react-google-maps/api';
+import '../assets/styles/components/SearchOrigin.scss';
+
+import casaIcon from '../assets/icons/casa-icon.png';
 
 class SearchOrigin extends Component {
     constructor(props){
@@ -28,24 +31,19 @@ class SearchOrigin extends Component {
                 console.log(this.searchBox.getPlaces())
                 console.log(this.searchBox.getBounds())
             }}
-        >
-            <input
+        >   
+            <div className = 'input__origin'>
+                
+                <div><img src={casaIcon} alt='imagen' /> </div>
+                <input
                 type='text'
                 placeholder='Ingresa punto de partida'
-                style={{
-                boxSizing: `border-box`,
-                border: `1px solid transparent`,
-                width: `240px`,
-                height: `32px`,
-                padding: `0 12px`,
-                borderRadius: `10px`,
-                fontSize: `14px`,
-                outline: `none`,
-                textOverflow: `ellipses`,
-                }}
                 value={ text }
                 onChange={ this.handleInpuchChange }
-            />
+                className='inputRide'
+                />
+            </div>
+            
         </StandaloneSearchBox>
         )
     }     

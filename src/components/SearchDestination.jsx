@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 import { StandaloneSearchBox } from '@react-google-maps/api';
+import '../assets/styles/components/SearchDestination.scss';
+
+import pinIcon from '../assets/icons/pin-icon.png';
 
 class SearchDestination extends Component {
     constructor(props){
@@ -28,23 +31,19 @@ class SearchDestination extends Component {
                 destinyLocation(destiny)
             }}
         >
-            <input
+            <div className = 'input__origin'>
+                
+                <div><img src={pinIcon} alt='imagen' /> </div>
+                <input
+                className = 'inputRide'
                 type='text'
                 placeholder='Selecciona tu destino'
-                style={{
-                boxSizing: `border-box`,
-                border: `1px solid transparent`,
-                width: `240px`,
-                height: `32px`,
-                padding: `0 12px`,
-                borderRadius: `10px`,
-                fontSize: `14px`,
-                outline: `none`,
-                textOverflow: `ellipses`,
-                }}
                 value={ text }
                 onChange={ this.handleInpuchChange }
             />
+                
+            </div>
+            
         </StandaloneSearchBox>
         )
     }     
