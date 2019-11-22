@@ -28,6 +28,11 @@ class SearchOrigin extends Component {
                 this.searchBox = ref
             }}
             onPlacesChanged={ () => {
+                const { newUserCoordenates } = this.props
+                let newOriginCoordenates = {}
+                newOriginCoordenates.latitude = this.searchBox.getPlaces()[0].geometry.location.lat()
+                newOriginCoordenates.longitude = this.searchBox.getPlaces()[0].geometry.location.lng()
+                newUserCoordenates(newOriginCoordenates)
                 console.log(this.searchBox.getPlaces())
                 console.log(this.searchBox.getBounds())
             }}

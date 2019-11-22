@@ -9,6 +9,11 @@ export const initialLocation = (payload) => ({
   payload,
 });
 
+export const initialLocationCoordenates = (payload) => ({
+  type: 'INITIAL_LOCATION_COORDENATES',
+  payload
+}) 
+
 export const destinyLocation = (payload) => ({
   type: 'DESTINY_LOCATION',
   payload,

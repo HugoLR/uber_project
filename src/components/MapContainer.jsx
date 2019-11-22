@@ -73,7 +73,7 @@ class MapContainer extends React.Component {
 
   render() {
     const { latitude, longitude, directions, loadingDirections } = this.state;
-    const { destinyLocation } = this.props
+    const { destinyLocation, userLocationCoordenates } = this.props
     if(!latitude) {
       return (
         <div className='loading_map__container'>
@@ -86,7 +86,7 @@ class MapContainer extends React.Component {
           <GoogleMap
             id="map-id"
             zoom={17}
-            center={{ lat:latitude , lng:longitude}}
+            center={{ lat:!!userLocationCoordenates ? userLocationCoordenates.latitude : latitude , lng:!!userLocationCoordenates ? userLocationCoordenates.longitude : longitude}}
             mapContainerClassName='map-container'
             mapContainerStyle={{
               width:"100%",
@@ -98,8 +98,8 @@ class MapContainer extends React.Component {
               console.log('marker: ', marker)
             }}
             position={{
-              lat: latitude,
-              lng: longitude
+              lat: !!userLocationCoordenates ? userLocationCoordenates.latitude : latitude,
+              lng: !!userLocationCoordenates ? userLocationCoordenates.longitude : longitude
             }}
           />
           {
@@ -117,7 +117,7 @@ class MapContainer extends React.Component {
                 <DirectionsService
                   options={{ // eslint-disable-line react-perf/jsx-no-new-object-as-prop
                   destination: `${destinyLocation.latitude}, ${destinyLocation.longitude}`,
-                  origin: `${latitude}, ${longitude}`,
+                  origin: `${!!userLocationCoordenates ? userLocationCoordenates.latitude : latitude}, ${!!userLocationCoordenates ? userLocationCoordenates.longitude : longitude}`,
                   travelMode: 'DRIVING'}}
                   onUnmount={directionsService => {
                     console.log('DirectionsService onUnmount directionsService: ', directionsService)}}
@@ -146,7 +146,7 @@ class MapContainer extends React.Component {
                 <DistanceMatrixService
                   // required
                   options={{
-                    origins:[`${latitude}, ${longitude}`],
+                    origins:[`${!!userLocationCoordenates ? userLocationCoordenates.latitude : latitude}, ${!!userLocationCoordenates ? userLocationCoordenates.longitude : longitude}`],
                     destinations:[`${destinyLocation.latitude}, ${destinyLocation.longitude}`],
                     travelMode: 'DRIVING',
                   }}
@@ -164,7 +164,8 @@ class MapContainer extends React.Component {
 
 const mapStateToProps = state => {
   return {
-    destinyLocation: state.locations.destiny
+    destinyLocation: state.locations.destiny, 
+    userLocationCoordenates: state.locations.userLocationCoordenates
   };
 };
 

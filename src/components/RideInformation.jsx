@@ -9,7 +9,7 @@ import classNames from 'classnames';
 import { connect } from 'react-redux';
 
 //Actions 
-import { destinyLocation, rideClass } from '../actions';
+import { destinyLocation, rideClass, initialLocationCoordenates } from '../actions';
 
 //Components
 import SearchOrigin from './SearchOrigin';
@@ -65,7 +65,7 @@ class RideInformation extends Component {
     }
 
     render() {
-        const { handleSubmit, initialize, actualForm, userLocation, destinyLocation, distanceMatrixService, rideGrade } = this.props
+        const { handleSubmit, initialize, actualForm, userLocation, destinyLocation, distanceMatrixService, rideGrade, initialLocationCoordenates } = this.props
         const standartClassNames = classNames({
             'ride__form-grade' : true,
             'ride__form-grade-selected': !!rideGrade && rideGrade.class === 0
@@ -97,10 +97,11 @@ class RideInformation extends Component {
                             <Field
                                 name='origin'
                                 component={ SearchOrigin }
-                              initializeForm={ initialize }
-                              actualForm={ actualForm }
-                              userLocation= { userLocation }
-                          /> 
+                                initializeForm={ initialize }
+                                actualForm={ actualForm }
+                                userLocation= { userLocation }
+                                newUserCoordenates={ initialLocationCoordenates }
+                            /> 
                           <Field
                               name='destination'
                               component={ SearchDestination }
@@ -153,6 +154,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = {
   destinyLocation,
+  initialLocationCoordenates,
   rideClass,
 };
 
