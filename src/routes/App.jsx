@@ -6,6 +6,7 @@ import NotFound from '../containers/NotFound';
 import Login from '../containers/Login';
 import Register from '../containers/Register';
 import Home from '../containers/Home';
+import RideBoxInformation from '../components/RideBoxInformation';
 
 const App = () => (
   <BrowserRouter>
@@ -14,6 +15,7 @@ const App = () => (
         <Route exact path='/' component={Home} />
         <Route exact path='/login' component={Login} />
         <Route exact path='/register' component={Register} />
+        <Route exact path='/ride' component={RideBoxInformation} />
         <Route component={NotFound} />
       </Switch>
     </Layout>

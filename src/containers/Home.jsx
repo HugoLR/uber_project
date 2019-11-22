@@ -9,14 +9,14 @@ import RideInformation from '../components/RideInformation';
 const Home = () => {
   return (
     <div className='home'>
-        <Row>
-          <Col xs='4'>
-              <RideInformation />
-          </Col>
-          <Col xs='8'>
-              <MapContainer />
-          </Col>
-        </Row>
+      <Row>
+        <Col xs='4'>
+          <RideInformation />
+        </Col>
+        <Col xs='8'>
+          <MapContainer />
+        </Col>
+      </Row>
     </div>
   );
 };

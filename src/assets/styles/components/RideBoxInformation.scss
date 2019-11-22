@@ -1,0 +1,40 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400&display=swap');
+$light-gray: #DCDCDC;
+$blackd: #2C2C2C;
+
+.RideBoxInformation{
+  background-color: rgba(255,255,255,0.1);
+  border: 2px solid white;
+  border-radius: 10px;
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.25), 0 4px 6px rgba(0, 0, 0, 0.22);
+  color: white;
+  height: 50%;
+  padding: 60px 68px 40px;
+  width: 70%;
+  margin:50px;
+}
+.RideBoxInformation__container {
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: row;
+    color: $blackd;
+
+}
+
+.RideBoxInformation__container-mini {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+
+}
+
+.RideBoxInformation__container-mini img{
+  margin-right: 20px;
+  width: 50px;
+}
+
+.RideBoxInformation__container-mini--data {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
