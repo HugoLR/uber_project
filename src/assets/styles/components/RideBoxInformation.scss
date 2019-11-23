@@ -3,20 +3,25 @@ $light-gray: #DCDCDC;
 $blackd: #2C2C2C;
 
 .RideBoxInformation{
-  background-color: rgba(255,255,255,0.1);
+  background-color: rgba(255,255,255,0.95);
+  position: absolute;
+  top: 47vh;
+  display: flex;
+  align-items: center;
   border: 2px solid white;
   border-radius: 10px;
   box-shadow: 0 8px 12px rgba(0, 0, 0, 0.25), 0 4px 6px rgba(0, 0, 0, 0.22);
   color: white;
-  height: 50%;
-  padding: 60px 68px 40px;
-  width: 70%;
-  margin:50px;
+  height: 40%;
+  width: 80%;
+  padding: 0px 10px,;
 }
 .RideBoxInformation__container {
+    width: 100%;
+    height: 100%;
     display: flex;
-    justify-content: space-evenly;
-    flex-direction: row;
+    justify-content: space-around;
+    flex-direction: column;
     color: $blackd;
 
 }
@@ -33,8 +38,28 @@ $blackd: #2C2C2C;
   width: 50px;
 }
 
+.RideBoxInformation__container-mini svg{
+  margin-right: 20px;
+}
+
 .RideBoxInformation__container-mini--data {
   display: flex;
   flex-direction: column;
   align-items: flex-end;
+}
+
+.RideBoxInformation__calification-button {
+  position: relative;
+  top: 4px;
+  margin-right: 12px;
+  color: white;
+  background-color: #36B662;
+  border: none;
+  padding: 7px 12px;
+  border-radius: 21px;
+  outline:unset;
+}
+
+.RideBoxInformation__calification-button:focus {
+  outline:unset;
 }

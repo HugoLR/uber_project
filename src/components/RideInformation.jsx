@@ -4,16 +4,18 @@ import { Field, reduxForm } from 'redux-form';
 import { StandaloneSearchBox } from '@react-google-maps/api';
 import PropagateLoader  from 'react-spinners/PropagateLoader';
 import classNames from 'classnames';
+import axios from 'axios';
 
 //Redux
 import { connect } from 'react-redux';
 
 //Actions 
-import { destinyLocation, rideClass, initialLocationCoordenates } from '../actions';
+import { destinyLocation, rideClass, initialLocationCoordenates, actualRide } from '../actions';
 
 //Components
 import SearchOrigin from './SearchOrigin';
 import SearchDestination from './SearchDestination';
+import Axios from 'axios';
 
 class RideInformation extends Component {
 
@@ -64,6 +66,21 @@ class RideInformation extends Component {
         return this.props.rideClass(payload)
     }
 
+    onSubmit = values => {
+        const { rideGrade, distanceMatrixService, actualRide } = this.props
+
+        let payload = {...distanceMatrixService, ...rideGrade}
+        payload.calification = null
+        axios.post('http://localhost:3000/api/rides', payload )
+            .then(res => {
+                axios.get('http://localhost:3000/api/rides')
+                    .then(res => {
+                        actualRide(res.data.data[res.data.data.length -1])
+                    })
+            })
+
+    }
+
     render() {
         const { handleSubmit, initialize, actualForm, userLocation, destinyLocation, distanceMatrixService, rideGrade, initialLocationCoordenates } = this.props
         const standartClassNames = classNames({
@@ -83,7 +100,7 @@ class RideInformation extends Component {
 
         return (
             <div className='ride__container'>
-                <form onSubmit={ handleSubmit } className='ride__form'>
+                <form onSubmit={ handleSubmit(this.onSubmit) } className={!!rideGrade ? 'ride__form ride__form-flex': 'ride__form'}>
                     <h2 className='ride__form-title'>Viaje</h2>
                     {
                         !userLocation &&
@@ -129,13 +146,15 @@ class RideInformation extends Component {
                               <p>Premium</p>
                               <p>${this.parsePrice(2, distanceMatrixService.rows[0].elements[0].distance.text, distanceMatrixService.rows[0].elements[0].duration.text).toFixed(2)}</p>
                           </div>
+                          {
+                               
+                            !!rideGrade &&
+                            <div>
+                                <button className='ride__form-button'>Confirmar viaje</button>
+                            </div>
+
+                          }
                       </React.Fragment>
-                  }
-                  {
-                      !!rideGrade &&
-                      <div>
-                          <button className='ride__form-button'>Confirmar viaje</button>
-                      </div>
                   }
               </form> 
           </div>
@@ -156,6 +175,7 @@ const mapDispatchToProps = {
   destinyLocation,
   initialLocationCoordenates,
   rideClass,
+  actualRide
 };
 
 export default reduxForm({

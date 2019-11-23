@@ -1,6 +1,7 @@
 const initialState = {
     userLocation: null,
     userLocationCoordenates: null,
+    directions: null,
     destiny: null,
     distanceMatrixService: null,
     rideClass: null
@@ -18,6 +19,12 @@ export default  (state = initialState, action) => {
           ...state,
           userLocationCoordenates: action.payload,
         };
+
+      case 'DIRECTIONS':
+      return {
+        ...state,
+        directions: action.payload,
+      };
     case 'DESTINY_LOCATION':
         return {
           ...state,

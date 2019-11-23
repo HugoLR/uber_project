@@ -5,7 +5,14 @@
 }
 
 .ride__form {
+    height: 80vh;
     padding: 10px 10px;
+}
+
+.ride__form-flex {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .ride__form > div {
@@ -21,7 +28,7 @@
 
 .ride__form-duration {
     color: white;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 }
 
 .ride__form-grade {
@@ -51,5 +58,10 @@
     border: none;
     padding: 7px 12px;
     border-radius: 21px;
+    outline:unset;
+}
+
+.ride__form-button:focus {
+    outline: none;
 }
 

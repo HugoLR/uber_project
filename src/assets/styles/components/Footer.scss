@@ -3,10 +3,11 @@ $light-gray: #DCDCDC;
 $blackd: #2C2C2C;
 
 .footer {
-  align-items: center;
   background-color: white;
   display: flex;
-  height: 100px;
+  justify-content: center;
+  align-items: center;
+  height: auto;
   width: 100%;
 }
 
@@ -15,6 +16,7 @@ $blackd: #2C2C2C;
   cursor: pointer;
   font-size: 14px;
   padding-left: 30px;
+  margin-top: 10px;
   text-decoration: none;
 }
 

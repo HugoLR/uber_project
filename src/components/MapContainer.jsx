@@ -44,6 +44,18 @@ class MapContainer extends React.Component {
     }
   }
 
+  // shouldComponentUpdate(nextProps, nextState) {
+  //   if (this.state.directions == null) {
+  //     return true
+  //   }
+
+  //   if (this.state.directions == nextState.directions) {
+  //     return false
+  //   }
+
+  //   return true
+  // }
+
   onLoad = (autocomplete) => {
     this.autocomplete = autocomplete
   }
@@ -60,7 +72,7 @@ class MapContainer extends React.Component {
     // Todo: Fix call setsatet multiple Times
     if (response !== null) {
       if (response.status === 'OK') {
-          this.setState({directions: response})
+          return this.setState({directions: response})
       } else return
     }
   }

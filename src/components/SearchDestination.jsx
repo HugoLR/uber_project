@@ -13,7 +13,7 @@ class SearchDestination extends Component {
     } // End constructor
 
     handleInpuchChange = e => {
-        this.setState({text:e.target.value})
+        e.target.value
     }
 
     render() {
@@ -38,7 +38,6 @@ class SearchDestination extends Component {
                 className = 'inputRide'
                 type='text'
                 placeholder='Selecciona tu destino'
-                value={ text }
                 onChange={ this.handleInpuchChange }
             />
                 

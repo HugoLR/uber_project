@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { createStore, compose, combineReducers } from 'redux';
-import { accountReducer, initialLocationReducer } from './reducers/index';
+import { accountReducer, initialLocationReducer, rideReducer } from './reducers/index';
 import { reducer as formReducer } from 'redux-form'
 import 'bootstrap/dist/css/bootstrap.css';
 import App from './routes/App';
@@ -23,7 +23,8 @@ const initialState = {
 const reducers = {
   user: accountReducer,
   locations: initialLocationReducer,
-  form:formReducer
+  form:formReducer, 
+  ride:rideReducer
 }
 
 const rootReducer = combineReducers(reducers)

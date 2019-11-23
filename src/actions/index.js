@@ -19,6 +19,11 @@ export const destinyLocation = (payload) => ({
   payload,
 });
 
+export const setDirections = (payload) => ({
+  type: 'DIRECTIONS',
+  payload,
+});
+
 export const distanceMatrixService = (payload) => ({
   type: 'DISTANCE_MATRIX_SERVICE',
   payload,
@@ -28,3 +33,8 @@ export const rideClass = (payload) => ({
   type: 'RIDE_CLASS',
   payload,
 });
+
+export const actualRide = (payload) => ({
+  type: 'ACTUAL_RIDE',
+  payload,
+})
